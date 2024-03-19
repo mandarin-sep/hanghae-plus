@@ -33,23 +33,19 @@ class HardWork {
   }
 
   do() {
-    setImmediate(() => {
-      this.cut()
-    })
+    let index = 0;
+    const interval = setInterval(() => {
+      this._tasks[index]();
+      index++;
+    if(index === this._tasks.length) clearInterval(interval)
+    }, 0)
   }
-
-  cut(){
-    for (let i = 0; i < this._tasks.length; i++) {
-      this._tasks[i]();
-    } 
-  }
-
   // do() 이외의 메서드는 수정하지마세요
   get result() {
     return this._result;
   }
   _initTasks() {
-    const count = 30;
+    const count = 30000;
     const tasks = new Array(count);
 
     for (let i = 0; i < count; i++) {

@@ -53,7 +53,7 @@ function updateAttributes(target, newProps, oldProps) {
         if (name === 'class') {
           target.removeAttribute('class');
         } else {
-          target.removeAttribute(name); // 이 부분을 추가합니다.
+          target.removeAttribute(name);
         }
       }
     });
